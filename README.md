@@ -15,6 +15,8 @@ This tool allows for a quick and easy way to estimate the quality of a 3D printe
 7. To determine elephant's foot, run the 'detectElephantFoot.py'
 8. The image files to run these functions must be in the same folder as the python script
 
+A jupyter notebook is included to quickly see the source code in one file
+
 ## Conda Environment
 Should the conda environment file not work properly, here is a list of necessary packages and their version
 
