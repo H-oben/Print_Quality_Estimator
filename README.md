@@ -6,7 +6,7 @@ This tool allows for a quick and easy way to estimate the quality of a 3D printe
 
 ## Use
 
-1. Testing file are located in the TestCode folder
+1. Testing file are located in the TestCode folder (This code automates running the code with the data set and producing an output)
 2. Source files are located in the Source folder
 3. The data set is located in the DataSet folder
 4. A conda environment is included
