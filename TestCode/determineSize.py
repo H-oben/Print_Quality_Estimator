@@ -1,4 +1,14 @@
-import header
+#Hunter Obendorfer
+#1834106
+#Python 3.7.11, OCV 3.4.2, MPL 3.4.3, numpy 1.21.2
+#use high resolution images, I used 4608 × 2592 images
+
+import cv2 as cv
+import numpy as np
+from skimage import measure
+import imutils
+from prepImg import prepImg
+
 #approximate the size of the object and determine how accurate your printer is
 #height and width can be found in 3D printer stl slicer, cura has this
 #information in the bottom left corner of the screen
@@ -6,7 +16,7 @@ import header
 #1 inch = 25.4 mm
 #assuming all objects other than the cube are the same object
 
-def determineSize(img, width, height, error=5.0):
+def determineSize(img, width, height, error=5.0, retData=False):
     #image must be oriented such that the calibration cube is the rightmost object
     prepared = prepImg(img)
     (h, w) = prepared.shape
@@ -84,6 +94,10 @@ def determineSize(img, width, height, error=5.0):
     avgErrY = avgErrY/(len(rect)-1)
     avgW=avgW/(len(rect)-1)
     avgH=avgH/(len(rect)-1)
+
+    if(retData):        #return data only
+        return (avgW, avgH)
+
     if(avgErrX>error or avgErrY > error):
         print("Recalibrate steps/mm\nTutorial here: https://all3dp.com/2/how-to-calibrate-a-3d-printer-simply-explained/")
     cv.putText(retImg, 
@@ -91,4 +105,5 @@ def determineSize(img, width, height, error=5.0):
                 (100, h-100), cv.FONT_HERSHEY_PLAIN, 8, (0,255,0), 5)
             
     retImg = cv.cvtColor(retImg, cv.COLOR_BGR2RGB) #cvt before hand
+    
     return(retImg)

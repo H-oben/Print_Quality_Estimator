@@ -1,9 +1,18 @@
-import header
+#Hunter Obendorfer
+#1834106
+#Python 3.7.11, OCV 3.4.2, MPL 3.4.3, numpy 1.21.2
+#use high resolution images, I used 4608 × 2592 images
+
+import cv2 as cv
+import numpy as np
+from skimage import measure
+import imutils
+from prepImg import prepImg
 
 #find burnt pieces of filament lodged in the object
 #This is a result of an unclean nozzle
 #cannont detect line-like burns, only blob like
-def findBurntSpot(img, objectColor = "white"):
+def findBurntSpot(img, objectColor = "white", retData=False):
     #unused for now, only considering objects made from white filament 
     #objectColor.lower()
     prepared = prepImg(img)
@@ -14,6 +23,7 @@ def findBurntSpot(img, objectColor = "white"):
     #do range thresholding
     #change values in range to 255
     #values not in range are set to 0
+    (height, width) = prepared.shape
     
     for x in range(0,width):
         for y in range(0, height):
@@ -50,5 +60,8 @@ def findBurntSpot(img, objectColor = "white"):
     contours = cv.findContours(mask.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
     contours = imutils.grab_contours(contours)
     if(len(contours) > 0):
-        print("Burns/blemishes found, clean the printer's nozzle inside and out.")
+        if(retData):
+            return(contours)
+        else:
+            print("Burns/blemishes found, clean the printer's nozzle inside and out.")
     return(contours)
