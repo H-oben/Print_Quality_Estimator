@@ -7,10 +7,11 @@ This tool allows for a quick and easy way to estimate the quality of a 3D printe
 ## Quick Grading
 1. Go to the TestCode folder
 2. Use the included conda environment
-3. Run the python files testElephant.py, testSize.py, and testBurns.py
-4. These files scripts will not output images but will write outputs to csv files
-5. The csv files will be located in '/TestCode/DataSet/(respectivetest)/(outputFile).csv'
-6. For example, if testSize.py is run, the output will be in 'TestCode/DataSet/DimensionEstimate/dimensionError.csv'
+3. quickRun.sh will run all tests in one command
+4. Be sure to 'chmod +x quickRun.sh'
+5. These files scripts will not output images but will write outputs to csv files
+6. The csv files will be located in '/TestCode/DataSet/(respectivetest)/(outputFile).csv'
+7. For example, if testSize.py is run, the output will be in 'TestCode/DataSet/DimensionEstimate/dimensionError.csv'
 
 ## Regular Use
 
@@ -35,7 +36,7 @@ Should the conda environment file not work properly, here is a list of necessary
 5. python 3.7.11
 6. scikit-image 0.18.3
 7. scipy 1.7.2
-8. csv
+8. csvkit 1.0.5
 
 ## Data Set Description
 A csv is included to compare the results of the functions
