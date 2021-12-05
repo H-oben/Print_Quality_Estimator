@@ -27,6 +27,7 @@ Should the conda environment file not work properly, here is a list of necessary
 5. python 3.7.11
 6. scikit-image 0.18.3
 7. scipy 1.7.2
+8. csv
 
 ## Data Set Description
 A csv is included to compare the results of the functions
