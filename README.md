@@ -4,7 +4,15 @@
 
 This tool allows for a quick and easy way to estimate the quality of a 3D printed object
 
-## Use
+## Quick Grading
+1. Go to the TestCode folder
+2. Use the included conda environment
+3. Run the python files testElephant.py, testSize.py, and testBurns.py
+4. These files scripts will not output images but will write outputs to csv files
+5. The csv files will be located in '/TestCode/DataSet/(respectivetest)/(outputFile).csv'
+6. For example, if testSize.py is run, the output will be in 'TestCode/DataSet/DimensionEstimate/dimensionError.csv'
+
+## Regular Use
 
 1. Testing file are located in the TestCode folder (This code automates running the code with the data set and producing an output)
 2. Source files are located in the Source folder
@@ -15,7 +23,7 @@ This tool allows for a quick and easy way to estimate the quality of a 3D printe
 7. To determine elephant's foot, run the 'detectElephantFoot.py'
 8. The image files to run these functions must be in the same folder as the python script
 
-A jupyter notebook is included to quickly see the source code in one file
+A jupyter notebook is included to quickly see all the source code in one file
 
 ## Conda Environment
 Should the conda environment file not work properly, here is a list of necessary packages and their version
