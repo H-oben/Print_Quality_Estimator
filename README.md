@@ -1,4 +1,4 @@
-# Print_Quality_Estimator
+# Print Quality Estimator
 
 # Author: Hunter Obendorfer
 
